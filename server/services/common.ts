@@ -119,9 +119,7 @@ export = ({ strapi }: StrapiContext): IServiceCommon => ({
     const defaultSelect: Array<CommentModelKeys> = (["id", "related"] as const).filter((field) => !omit.includes(field));
 
     const populateClause: PopulateClause<CommentModelKeys> = {
-      authorUser: {
-        avatar: true,
-      },
+      authorUser: { populate: { avatar: true } },
       ...(isObject(populate) ? populate : {}),
     };
     const doNotPopulateAuthor: Array<string> = isAdmin
@@ -439,7 +437,7 @@ export = ({ strapi }: StrapiContext): IServiceCommon => ({
   ): Comment {
     const fieldsToPopulate = isArray(populate)
       ? populate
-      : Object.keys(populate || { avatar: true, name: true });
+      : Object.keys(populate || { avatar: true });
 
     return filterItem({
       ...buildAuthorModel(
