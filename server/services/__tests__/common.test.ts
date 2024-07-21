@@ -118,7 +118,8 @@ describe("Test Comments service - Common", () => {
 
     const authorSample = {
       id: 1,
-      username: "Joe Doe",
+      username: "joedoe",
+      name: "Joe Doe",
       email: "test@example.com",
       password: "xxx",
     };
@@ -177,7 +178,8 @@ describe("Test Comments service - Common", () => {
       expect(output).toHaveProperty("author");
       expect(output).toHaveProperty("author.id", input.authorUser.id);
       expect(output).toHaveProperty("author.id", outputAuthorSample.id);
-      expect(output).toHaveProperty("author.name", input.authorUser.username);
+      expect(output).toHaveProperty("author.username", input.authorUser.username);
+      expect(output).toHaveProperty("author.name", input.authorUser.name);
       expect(output).toHaveProperty("author.name", outputAuthorSample.name);
       expect(output).toHaveProperty("author.email", input.authorUser.email);
       expect(output).toHaveProperty("author.email", outputAuthorSample.email);

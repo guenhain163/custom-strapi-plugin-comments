@@ -560,7 +560,7 @@ describe("Test Comments service - Client", () => {
             expect(result).toHaveProperty(["related"], related);
             expect(result).toHaveProperty(["content"], payload.content);
             expect(result).toHaveProperty(["author", "id"], user.id);
-            expect(result).toHaveProperty(["author", "name"], user.username);
+            expect(result).toHaveProperty(["author", "username"], user.username);
             expect(result).toHaveProperty(["author", "email"], user.email);
             expect(result).toHaveProperty(
               ["approvalStatus"],
