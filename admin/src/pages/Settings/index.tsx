@@ -46,6 +46,7 @@ import ConfirmationDialog from "../../components/ConfirmationDialog";
 import { RestartAlert } from "./components/RestartAlert/styles";
 import FormSwitch from "../../components/FormSwitch";
 import { ToBeFixed } from "../../../../types";
+import { pluginId } from '../../pluginId';
 
 const Settings = () => {
   useFocusWhenNavigate();
@@ -56,6 +57,7 @@ const Settings = () => {
   const toggleNotification = useNotification();
   const { lockApp, unlockApp } = useOverlayBlocker();
 
+    console.log(pluginId);
   const {
     isLoading: isLoadingForPermissions,
     allowedActions
